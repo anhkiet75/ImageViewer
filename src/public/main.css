@@ -1,0 +1,258 @@
+:root {
+  --headerHeight: 36px;
+  --galleryHeight: 82px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #0f2027; /* fallback for old browsers */
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#image-element {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  height: var(--headerHeight);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__first {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.header__second {
+  margin-right: 4px;
+}
+
+.image-container {
+  overflow: hidden;
+  height: 100%;
+}
+
+.gallery-container {
+  height: var(--galleryHeight);
+  display: flex;
+  padding: 4px 0;
+  justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#image-viewer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  /* transform-origin: 0px 0px; */
+  transform: scale(1) translate(0px, 0px);
+}
+
+#image-viewer img {
+  height: calc(100vh - var(--galleryHeight) - var(--headerHeight));
+  object-fit: contain;
+}
+
+/* .button {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 2px 4px;
+  margin: 0 2px;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+} */
+
+.button {
+  margin: 0 2px;
+  border-radius: 8px;
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 2px 4px;
+  outline: none;
+  border: none;
+  background-color: hsl(236, 32%, 26%);
+}
+
+.button::before {
+  border-radius: 8px;
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fc2f70;
+  transform-origin: center left;
+  transform: scaleX(0);
+  transition: transform 0.25s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:hover::before {
+  transform-origin: center right;
+  transform: scaleX(1);
+}
+
+/* .button::after {
+  content: "";
+  position: absolute;
+  border-right: 1px solid rgb(166, 153, 153);
+  right: -2px;
+  top: 4px;
+  height: 28px;
+} */
+.divider {
+  margin: 0 4px;
+  border-right: 1px solid rgb(166, 153, 153);
+  height: 28px;
+}
+
+/* .button:hover {
+  background-color: #8f5046;
+}
+
+.button:active {
+  background-color: #7c453c;
+}
+.active.button {
+  background-color: #7c453c;
+} */
+
+.button img {
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(191deg)
+    brightness(107%) contrast(101%);
+  width: 28px;
+  height: 28px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgb(46, 45, 45);
+  border: 1px solid rgb(88, 85, 85);
+  color: #fff;
+  text-align: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  z-index: 1;
+  font-size: 12px;
+}
+
+.tooltip .tooltipimage {
+  visibility: hidden;
+  width: max-content;
+  background-color: rgb(46, 45, 45);
+  border: 1px solid rgb(88, 85, 85);
+  color: #fff;
+  text-align: center;
+  padding: 4px 4px;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 105%;
+  left: 0;
+  z-index: 1;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  line-height: 16px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip:hover .tooltipimage {
+  visibility: visible;
+  transition-delay: 0.2s;
+}
+
+.gallery-item {
+  max-height: calc(var(--galleryHeight) - 4px);
+  padding: 4px;
+  margin: 0 2px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.gallery-item:hover {
+  background-color: #a25a4f;
+}
+
+.gallery-item:active {
+  background-color: #b06459;
+}
+
+.active.gallery-item {
+  background-color: #8f5046;
+}
+
+.gallery-image {
+  max-height: 60px;
+  max-width: 40px;
+}
+
+.gallery-text {
+  max-width: 50px;
+  font-size: 10px;
+  color: white;
+  overflow: hidden;
+  padding-top: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

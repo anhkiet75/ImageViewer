@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image viewer</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/public/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header__first">
+          <button id="previous" class="tooltip button" draggable="false">
+            <img src="src/public/icon/arrow-left.svg" alt="" />
+            <span class="tooltiptext">View previous image</span>
+          </button>
+          <button id="next" class="tooltip button" draggable="false">
+            <img src="src/public/icon/arrow-right.svg" alt="" />
+            <span class="tooltiptext">View next image</span>
+          </button>
+          <div class="divider"></div>
+          <button id="rotate-left" class="tooltip button" draggable="false">
+            <img src="src/public/icon/arrow-uturn-left.svg" alt="" />
+            <span class="tooltiptext">Rotate left</span>
+          </button>
+          <button id="rotate-right" class="tooltip button" draggable="false">
+            <img src="src/public/icon/arrow-uturn-right.svg" alt="" />
+            <span class="tooltiptext">Rotate right</span>
+          </button>
+          <button id="flip-horizal" class="tooltip button" draggable="false">
+            <img src="src/public/icon/flip-horizal.svg" alt="" />
+            <span class="tooltiptext">Flip Horizontal</span>
+          </button>
+          <button id="flip-vertical" class="tooltip button" draggable="false">
+            <img src="src/public/icon/flip-vertical.svg" alt="" />
+            <span class="tooltiptext">Flip Vertical</span>
+          </button>
+          <!-- <button id="crop" class="tooltip button divider" draggable="false">
+            <img src="src/public/icon/crop.svg" alt="" />
+            <span class="tooltiptext">Crop</span>
+          </button> -->
+          <button
+            id="auto-zoom"
+            class="tooltip button scale-group"
+            draggable="false"
+          >
+            <img src="src/public/icon/auto-zoom.svg" alt="" />
+            <span class="tooltiptext">Auto zoom</span>
+          </button>
+          <button
+            id="scale-width"
+            class="tooltip button scale-group"
+            draggable="false"
+          >
+            <img src="src/public/icon/scale-width.svg" alt="" />
+            <span class="tooltiptext">Scale to width</span>
+          </button>
+          <button
+            id="scale-height"
+            class="tooltip button scale-group"
+            draggable="false"
+          >
+            <img src="src/public/icon/scale-height.svg" alt="" />
+            <span class="tooltiptext">Scale to height</span>
+          </button>
+          <div class="divider"></div>
+          <button id="refresh" class="tooltip button" draggable="false">
+            <img src="src/public/icon/refresh.svg" alt="" />
+            <span class="tooltiptext">Refresh</span>
+          </button>
+          <button
+            id="image-gallery"
+            class="tooltip button active"
+            draggable="false"
+          >
+            <img src="src/public/icon/image-gallery.svg" alt="" />
+            <span class="tooltiptext">Image gallery</span>
+          </button>
+          <button id="zoom-in" class="tooltip button" draggable="false">
+            <img src="src/public/icon/zoom-in.svg" alt="" />
+            <span class="tooltiptext">Zoom in</span>
+          </button>
+          <button id="zoom-out" class="tooltip button" draggable="false">
+            <img src="src/public/icon/zoom-out.svg" alt="" />
+            <span class="tooltiptext">Zoom out</span>
+          </button>
+          <button
+            id="fullscreen"
+            class="tooltip button"
+            draggable="false"
+          >
+            <img src="src/public/icon/fullscreen.svg" alt="" />
+            <span class="tooltiptext">Full screen</span>
+          </button>
+          <div class="divider"></div>
+          <button id="trash" class="tooltip button" draggable="false">
+            <img src="src/public/icon/trash-can.svg" alt="" />
+            <span class="tooltiptext">Delete</span>
+          </button>
+        </div>
+        <div class="header__second">
+          <label for="image" class="tooltip button">
+            <img src="src/public/icon/open-file.svg" alt="" />
+            <span class="tooltiptext">Open file ...</span>
+          </label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/png, image/jpeg"
+            width="20"
+            hidden
+          />
+          <button id="menu" class="tooltip button" draggable="false">
+            <img src="src/public/icon/menu.svg" alt="" />
+            <span class="tooltiptext">Menu</span>
+          </button>
+        </div>
+      </div>
+      <div class="image-container" draggable="false">
+        <div id="image-viewer" draggable="false">
+          <img id="image-element" src="data:," alt="" draggable="false" />
+        </div>
+      </div>
+      <div class="gallery-container" draggable="false"></div>
+    </div>
+    <script type="module" src="/src/renderer.js"></script>
+  </body>
+</html>
